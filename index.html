@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI大模型训练数据推荐目录</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  /* ===== Header ===== */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff;
+    padding: 60px 40px 50px;
+    border-radius: 16px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(102,126,234,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header-tag {
+    display: inline-block;
+    background: rgba(102,126,234,0.2);
+    border: 1px solid rgba(102,126,234,0.4);
+    color: #a8b4f9;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .header p.subtitle {
+    font-size: 16px;
+    color: #b8c2d9;
+    max-width: 700px;
+  }
+
+  /* ===== Stats Bar ===== */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+  .stat-card {
+    background: #fff;
+    padding: 24px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border-top: 3px solid #667eea;
+    transition: transform 0.3s ease;
+  }
+  .stat-card:hover {
+    transform: translateY(-4px);
+  }
+  .stat-card .num {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f3460;
+    margin-bottom: 4px;
+  }
+  .stat-card .label {
+    font-size: 13px;
+    color: #7f8c8d;
+    letter-spacing: 1px;
+  }
+
+  /* ===== Section ===== */
+  .section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .section-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 24px;
+    color: #0f3460;
+    font-weight: 700;
+  }
+  .section-desc {
+    color: #636e72;
+    font-size: 14px;
+    margin-bottom: 24px;
+    padding-left: 62px;
+  }
+  .value-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea20, #764ba220);
+    color: #5b5bd6;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+  }
+
+  /* ===== Table ===== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    margin-top: 8px;
+  }
+  thead th {
+    background: #0f3460;
+    color: #fff;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  tbody tr {
+    border-bottom: 1px solid #edf0f5;
+    transition: background 0.2s;
+  }
+  tbody tr:hover {
+    background: #f8f9fd;
+  }
+  tbody td {
+    padding: 12px 14px;
+    vertical-align: top;
+    color: #4a5568;
+  }
+  .ds-name {
+    font-weight: 700;
+    color: #0f3460;
+    white-space: nowrap;
+  }
+  .ds-name a {
+    color: #4a6cf7;
+    text-decoration: none;
+    border-bottom: 1px dashed #4a6cf7;
+  }
+  .ds-name a:hover {
+    color: #2d4ed8;
+  }
+  .stars {
+    color: #f5a623;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-hot {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+  .badge-new {
+    background: #dcfce7;
+    color: #16a34a;
+  }
+  .badge-open {
+    background: #dbeafe;
+    color: #2563eb;
+  }
+  .scale-text {
+    font-weight: 600;
+    color: #e67e22;
+    white-space: nowrap;
+  }
+
+  /* ===== Highlight Box ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 44px 40px;
+    color: #fff;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight-box::before {
+    content: "";
+    position: absolute;
+    bottom: -40%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .highlight-box h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .highlight-box > p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 28px;
+    max-width: 800px;
+    position: relative;
+  }
+  .cap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    position: relative;
+  }
+  .cap-item {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 20px 22px;
+    backdrop-filter: blur(6px);
+  }
+  .cap-item .cap-icon {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .cap-item h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .cap-item p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+
+  /* ===== Final CTA ===== */
+  .cta-box {
+    background: #0f3460;
+    border-radius: 16px;
+    padding: 44px 40px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .cta-box h2 {
+    font-size: 28px;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .cta-box h2 span {
+    color: #7ee0c8;
+  }
+  .cta-box p {
+    font-size: 15px;
+    color: #b8c2d9;
+    max-width: 780px;
+    margin: 0 auto 26px;
+  }
+  .cta-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .cta-badge {
+    background: rgba(126,224,200,0.15);
+    border: 1px solid rgba(126,224,200,0.4);
+    color: #7ee0c8;
+    padding: 8px 20px;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  /* ===== Footer ===== */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: #95a5a6;
+    font-size: 12px;
+  }
+
+  @media (max-width: 768px) {
+    .header, .section, .highlight-box, .cta-box {
+      padding: 28px 20px;
+    }
+    .header h1 { font-size: 26px; }
+    .section-desc { padding-left: 0; }
+    table { font-size: 12px; }
+    thead th, tbody td { padding: 8px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="header-tag">AI TRAINING DATA CATALOG</div>
+    <h1>AI大模型训练数据推荐目录</h1>
+    <p class="subtitle">精选六大核心模态数据资产 · 覆盖大模型训练全生命周期 · 从预训练到后训练、从推理增强到具身与世界模型</p>
+  </header>
+
+  <!-- ===== Stats Bar ===== -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="num">37+</div>
+      <div class="label">精选推荐数据集</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">6</div>
+      <div class="label">核心数据模态</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">1,600+</div>
+      <div class="label">覆盖语言种类</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">数亿级</div>
+      <div class="label">累计数据规模</div>
+    </div>
+  </div>
+
+  <!-- ===== 1. 轨迹数据 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#eef2ff;">🛤️</div>
+      <h2>一、轨迹数据（Agent Trajectory）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">推理能力跃升</span><span class="value-tag">Agent训练刚需</span><span class="value-tag">RFT强化微调</span><br>
+      高质量推理与工具调用轨迹，是大模型从"会答题"进化为"会做事"的核心养料。直接赋能 SFT/RFT 训练，让 Agent 在真实任务中执行更稳定、决策更精准。
+    </div>
+    <table>
+      <thead>
+        <tr><th>数据集名称</th><th>发布机构</th><th>数据规模</th><th>核心价值</th><th>适用场景</th><th>推荐指数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ds-name">SWE-ZERO-12M</td>
+          <td>—</td>
+          <td class="scale-text">1,229万轨迹 / 112B tokens</td>
+          <td>全网最大软件工程轨迹数据集，单数据集即可完成代码Agent完整训练</td>
+          <td>代码Agent训练 / SFT / RFT</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">CoderForge</td>
+          <td>—</td>
+          <td class="scale-text">25.8万验证轨迹</td>
+          <td>每条轨迹均通过单元测试验证，质量极高，可作奖励模型训练基准</td>
+          <td>代码Agent / 奖励模型 / 评测</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">TOUCAN</td>
+          <td>—</td>
+          <td class="scale-text">150万工具调用轨迹</td>
+          <td>多轮工具调用+推理双通道，全面提升Agent规划与执行能力</td>
+          <td>通用Agent训练</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">DigiRL-TrailData</td>
+          <td>—</td>
+          <td class="scale-text">数千条真机操作轨迹</td>
+          <td>移动端GUI操作轨迹，含环境状态与动作标注，适合移动Agent训练</td>
+          <td>GUI Agent / 移动端自动化</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 2. 竞赛题 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7;">🏆</div>
+      <h2>二、竞赛题数据（Competition Problems）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">推理深度突破</span><span class="value-tag">Benchmark标杆</span><span class="value-tag">CoT思维链</span><br>
+      覆盖数学、物理、信息学奥赛等高难度竞赛题，配有多步骤解题过程与逐步验证标签，是激发模型深度推理与自我反思能力的黄金数据。
+    </div>
+    <table>
+      <thead>
+        <tr><th>数据集名称</th><th>发布机构</th><th>数据规模</th><th>核心价值</th><th>适用场景</th><th>推荐指数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ds-name">MATH <span class="badge badge-open">经典</span></td>
+          <td>UC Berkeley</td>
+          <td class="scale-text">1.25万竞赛题</td>
+          <td>数学推理评测黄金标准，含分步解题与难度分级，SFT+评测必备</td>
+          <td>数学推理训练 / 评测基准</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">PRM800K</td>
+          <td>OpenAI</td>
+          <td class="scale-text">80万步骤标签</td>
+          <td>过程级奖励标注，训练Process Reward Model的首选数据</td>
+          <td>PRM训练 / 数学推理</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">OpenR1-Math-220k <span class="badge badge-new">新</span></td>
+          <td>HuggingFace</td>
+          <td class="scale-text">22万R1推理轨迹</td>
+          <td>DeepSeek-R1风格长思维链蒸馏数据，大幅提升推理密度</td>
+          <td>推理蒸馏 / SFT</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">NuminaMath-CoT</td>
+          <td>Numina AI</td>
+          <td class="scale-text">86万数学题</td>
+          <td>中英双语覆盖，从小学到奥赛全难度梯度，配完整CoT解法</td>
+          <td>数学能力全面训练</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">FrontierMath <span class="badge badge-hot">前沿</span></td>
+          <td>Epoch AI</td>
+          <td class="scale-text">数百道前沿难题</td>
+          <td>当前最难的数学评测集，用于检验模型推理上限</td>
+          <td>前沿能力评测</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name"> Omni-MATH</td>
+          <td>—</td>
+          <td class="scale-text">数万奥赛题</td>
+          <td>覆盖国际奥赛全领域，多步推理链完整</td>
+          <td>高难度推理训练</td>
+          <td class="stars">★★★☆☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 3. 期刊论文 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#dcfce7;">📚</div>
+      <h2>三、期刊论文数据（Academic Papers）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">知识密度最高</span><span class="value-tag">长文本理解</span><span class="value-tag">专业领域微调</span><br>
+      汇聚全球顶级学术资源，从预训练语料到科学推理指令，帮助模型掌握最前沿的人类知识，是构建"最聪明大脑"的基石。
+    </div>
+    <table>
+      <thead>
+        <tr><th>数据集名称</th><th>发布机构</th><th>数据规模</th><th>核心价值</th><th>适用场景</th><th>推荐指数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ds-name">arXiv Full-Text</td>
+          <td>Cornell</td>
+          <td class="scale-text">200万+篇</td>
+          <td>覆盖全学科最新研究，预训练科学知识的首选语料</td>
+          <td>预训练 / 科学知识注入</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">S2ORC</td>
+          <td>Allen AI</td>
+          <td class="scale-text">1.36亿篇解析文献</td>
+          <td>全球最大结构化学术语料，含全文解析与引用图谱</td>
+          <td>大规模学术预训练</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">PMC Full-Text</td>
+          <td>NLM/NIH</td>
+          <td class="scale-text">500万生物医学文献</td>
+          <td>生物医学领域权威全文，医疗大模型训练核心语料</td>
+          <td>医疗大模型 / 领域微调</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">MegaScience <span class="badge badge-new">新</span></td>
+          <td>—</td>
+          <td class="scale-text">125万科学推理指令</td>
+          <td>高质量科学问答与推理指令，覆盖数理化生多学科</td>
+          <td>科学推理对齐</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">SciRIFF</td>
+          <td>Allen AI</td>
+          <td class="scale-text">13.7万跨学科指令</td>
+          <td>从论文中提取的高质量指令微调数据，结构化程度高</td>
+          <td>学术指令微调</td>
+          <td class="stars">★★★☆☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 4. 多语种音频 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fce7f3;">🎵</div>
+      <h2>四、多语种音频数据（Multilingual Audio）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">全球化布局</span><span class="value-tag">语音大模型</span><span class="value-tag">低资源语言</span><br>
+      覆盖1,600+语种的语音识别与合成数据，从主流语言到濒危方言，助力语音大模型突破语言壁垒，服务全球数十亿用户。
+    </div>
+    <table>
+      <thead>
+        <tr><th>数据集名称</th><th>发布机构</th><th>数据规模</th><th>核心价值</th><th>适用场景</th><th>推荐指数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ds-name">Meta Omnilingual <span class="badge badge-new">新</span></td>
+          <td>Meta</td>
+          <td class="scale-text">1,600+语言</td>
+          <td>业界覆盖语种最广的ASR数据集，远超Whisper支持的100语言</td>
+          <td>多语种ASR / 语言覆盖扩展</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">Common Voice v22</td>
+          <td>Mozilla</td>
+          <td class="scale-text">137语言 / 3,718小时</td>
+          <td>众包模式持续更新，覆盖大量低资源语言与口音多样性</td>
+          <td>ASR训练 / 低资源语言</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">VoxPopuli</td>
+          <td>Meta</td>
+          <td class="scale-text">40万小时 / 23语言</td>
+          <td>欧洲议会演讲数据，说话人丰富、领域正式，适合高质量ASR</td>
+          <td>ASR / ST训练</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">Granary <span class="badge badge-hot">大</span></td>
+          <td>—</td>
+          <td class="scale-text">100万小时</td>
+          <td>多领域多语种超大规模音频，含转写文本，工业级ASR训练首选</td>
+          <td>工业级ASR / 语音翻译</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">CoVoST 2</td>
+          <td>Meta</td>
+          <td class="scale-text">21语言 → 36方向</td>
+          <td>最全面的开源语音翻译平行语料，支持多方向翻译训练</td>
+          <td>语音翻译 / 多语言对齐</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">GigaSpeech 2</td>
+          <td>—</td>
+          <td class="scale-text">3万小时中文域外</td>
+          <td>高质量中文语音识别数据，覆盖多口音多场景</td>
+          <td>中文ASR / 方言识别</td>
+          <td class="stars">★★★☆☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 5. 具身数据 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e0f2fe;">🤖</div>
+      <h2>五、具身智能数据（Embodied AI）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">机器人时代燃料</span><span class="value-tag">VLA训练</span><span class="value-tag">跨本体泛化</span><br>
+      从真机操作到仿真合成，覆盖22种以上机器人本体与百万级操作轨迹，是训练视觉-语言-动作模型（VLA）、打造通用机器人大脑的关键数据底座。
+    </div>
+    <table>
+      <thead>
+        <tr><th>数据集名称</th><th>发布机构</th><th>数据规模</th><th>核心价值</th><th>适用场景</th><th>推荐指数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ds-name">Open X-Embodiment <span class="badge badge-open">标杆</span></td>
+          <td>Google DeepMind等21家机构</td>
+          <td class="scale-text">100万+轨迹 / 22种本体</td>
+          <td>全球最大跨本体机器人数据集，直接对标RT-X训练范式</td>
+          <td>通用机器人VLA训练</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">AgiBot World <span class="badge badge-new">新</span></td>
+          <td>智元机器人</td>
+          <td class="scale-text">100万+真机轨迹</td>
+          <td>国内最大真机遥操作数据集，覆盖上百种日常任务</td>
+          <td>人形机器人 / 真机VLA</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">InternData-A1</td>
+          <td>上海AI Lab</td>
+          <td class="scale-text">63万操作轨迹</td>
+          <td>跨机器人平台统一格式，含RGB-D+力觉多模态信号</td>
+          <td>多模态操作学习</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">DexonomySim</td>
+          <td>—</td>
+          <td class="scale-text">950万抓取姿态</td>
+          <td>大规模仿真抓取数据，涵盖多指灵巧手</td>
+          <td>灵巧手抓取 / 仿真训练</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">RoboMIND</td>
+          <td>—</td>
+          <td class="scale-text">10.7万轨迹</td>
+          <td>多本体多场景，质量过滤严格，含失败案例</td>
+          <td>VLA训练 / 评测</td>
+          <td class="stars">★★★☆☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 6. 世界模型数据 ===== -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#f3e8ff;">🌍</div>
+      <h2>六、世界模型数据（World Model）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">视频生成核心</span><span class="value-tag">物理规律建模</span><span class="value-tag">自动驾驶仿真</span><br>
+      高质量长视频与3D场景数据，让模型学会理解物理世界的运动规律、因果关系与时空一致性，是训练视频生成模型与端到端自动驾驶的必选数据。
+    </div>
+    <table>
+      <thead>
+        <tr><th>数据集名称</th><th>发布机构</th><th>数据规模</th><th>核心价值</th><th>适用场景</th><th>推荐指数</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ds-name">OmniWorld <span class="badge badge-new">新</span></td>
+          <td>—</td>
+          <td class="scale-text">4,000+小时 / 3亿帧</td>
+          <td>全网最大开放世界视频数据集，含丰富标注与场景描述</td>
+          <td>视频生成 / 世界模型预训练</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">OpenDV-2K</td>
+          <td>—</td>
+          <td class="scale-text">2,059小时驾驶视频</td>
+          <td>多国多场景驾驶视频，含丰富叙述标注，适配GAIA系列训练</td>
+          <td>驾驶世界模型 / 视频生成</td>
+          <td class="stars">★★★★★</td>
+        </tr>
+        <tr>
+          <td class="ds-name">nuScenes</td>
+          <td>Motional</td>
+          <td class="scale-text">1,400场景 / 40万帧</td>
+          <td>多传感器融合标注最完整的自动驾驶数据集</td>
+          <td>感知 / 预测 / 仿真</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">Waymo Open</td>
+          <td>Waymo</td>
+          <td class="scale-text">1,200万标注 / 2,000+场景</td>
+          <td>工业级标注质量，感知与运动预测标杆数据</td>
+          <td>自动驾驶 / 端到端</td>
+          <td class="stars">★★★★☆</td>
+        </tr>
+        <tr>
+          <td class="ds-name">UBC1M</td>
+          <td>—</td>
+          <td class="scale-text">100万标注帧 / 560小时</td>
+          <td>大规模无人值守城市视频，适合城市世界模型训练</td>
+          <td>城市监控 / 场景理解</td>
+          <td class="stars">★★★☆☆</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== Company Capabilities ===== -->
+  <section class="highlight-box">
+    <h2>⚡ 我们的数据加工能力</h2>
+    <p>不止于推荐——我们提供从数据获取、清洗、标注到质量评估的全链路数据服务，每天都在更新与加工海量数据，持续满足大模型训练的极致要求。</p>
+    <div class="cap-grid">
+      <div class="cap-item">
+        <div class="cap-icon">🔄</div>
+        <h4>每日持续更新</h4>
+        <p>数据管道 7×24 小时运转，日处理数据量以 TB 级计，确保客户始终拿到最新鲜、最前沿的数据资产。</p>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">🧹</div>
+        <h4>深度清洗加工</h4>
+        <p>去重、去噪、毒性过滤、格式统一——多轮流水线打磨，交付即可训练，省去客户数月预处理成本。</p>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">🎯</div>
+        <h4>专家级标注</h4>
+        <p>数千人标注团队 + AI 辅助质检，覆盖文本、音频、视频、轨迹等多模态，标注一致率 95% 以上。</p>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">📊</div>
+        <h4>质量评估体系</h4>
+        <p>自研数据质量评估框架，从多样性、难度、纯净度多维度打分，每一批数据都有质量报告。</p>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">🔐</div>
+        <h4>合规安全交付</h4>
+        <p>严格遵循数据许可协议与隐私法规，全流程可审计，让客户用得放心、训得安心。</p>
+      </div>
+      <div class="cap-item">
+        <div class="cap-icon">⚙️</div>
+        <h4>定制数据生产</h4>
+        <p>按客户模型架构与训练目标，定制生产专属数据——从预训练语料到 RLHF 偏好对，精准匹配需求。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-box">
+    <h2>数据每天在更新，我们每天都在为您<span>加工更好数据</span></h2>
+    <p>大模型竞争的尽头是数据竞争。我们以持续更新的海量数据资产与专业的加工能力，成为您模型训练路上最可靠的数据伙伴。无论预训练、后训练还是前沿方向（具身智能、世界模型），我们都能快速响应、精准交付。</p>
+    <div class="cta-badges">
+      <span class="cta-badge">📅 数据日更</span>
+      <span class="cta-badge">🚀 快速交付</span>
+      <span class="cta-badge">🏆 质量保障</span>
+      <span class="cta-badge">🤝 定制服务</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>AI大模型训练数据推荐目录 · 本目录数据集信息整理自公开来源，具体许可条款以各数据集官方发布为准</p>
+  </footer>
+
+</div>
+</body>
+</html>
