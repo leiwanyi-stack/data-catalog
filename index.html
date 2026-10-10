@@ -243,20 +243,20 @@
       汇聚全球中英文期刊、硕博学位论文、CSSCI 与专利文献，从预训练语料到科学推理指令，覆盖多学科，是构建专业大模型知识底座的基石。
     </div>
     <table>
-      <thead><tr><th>数据集名称</th><th>规模量级</th><th>模态</th><th>格式</th></tr></thead>
+      <thead><tr><th>数据集名称</th><th>规模量级</th><th>模态</th><th>格式</th><th>适用场景</th></tr></thead>
       <tbody>
-        <tr><td class="ds-name">期刊论文数据集</td><td class="scale-text">8600万篇</td><td>文本</td><td>kdh / nh / caj / pdf</td></tr>
-        <tr><td class="ds-name">中文期刊</td><td class="scale-text">9000万+ 篇</td><td>文本</td><td>jsonl + pdf</td></tr>
-        <tr><td class="ds-name">多学科中英文文献</td><td class="scale-text">500万篇</td><td>文本</td><td>jsonl</td></tr>
-        <tr><td class="ds-name">硕士论文</td><td class="scale-text">750万+ 篇</td><td>文本</td><td>jsonl + pdf</td></tr>
-        <tr><td class="ds-name">跨领域英文期刊精选</td><td class="scale-text">4100万+ 条</td><td>文本</td><td>jsonl + pdf</td></tr>
-        <tr><td class="ds-name">中文论文期刊-2025</td><td class="scale-text">480万+ 条</td><td>文本</td><td>jsonl + pdf</td></tr>
-        <tr><td class="ds-name">英文学术论文</td><td class="scale-text">310万+ 条</td><td>文本</td><td>jsonl + pdf</td></tr>
-        <tr><td class="ds-name">CSSCI 论文</td><td class="scale-text">45万+ 篇</td><td>文本</td><td>pdf</td></tr>
-        <tr><td class="ds-name">ICT 中英文期刊</td><td class="scale-text">89万篇</td><td>文本</td><td>pdf</td></tr>
-        <tr><td class="ds-name">数学期刊</td><td class="scale-text">110万+ 篇</td><td>文本</td><td>jsonl + pdf</td></tr>
-        <tr><td class="ds-name">多领域中英文专利</td><td class="scale-text">500万条</td><td>文本</td><td>jsonl</td></tr>
-        <tr><td class="ds-name">蓝皮书数据集</td><td class="scale-text">18万+ 条</td><td>文本</td><td>jsonl + pdf</td></tr>
+        <tr><td class="ds-name">期刊论文数据集</td><td class="scale-text">8600万篇</td><td>文本</td><td>kdh / nh / caj / pdf</td><td>预训练 / 领域微调</td></tr>
+        <tr><td class="ds-name">中文期刊</td><td class="scale-text">9000万+ 篇</td><td>文本</td><td>jsonl + pdf</td><td>中文语料 / 微调</td></tr>
+        <tr><td class="ds-name">多学科中英文文献</td><td class="scale-text">500万篇</td><td>文本</td><td>jsonl</td><td>中英双语预训练</td></tr>
+        <tr><td class="ds-name">硕士论文</td><td class="scale-text">750万+ 篇</td><td>文本</td><td>jsonl + pdf</td><td>长文本 / 学术理解</td></tr>
+        <tr><td class="ds-name">跨领域英文期刊精选</td><td class="scale-text">4100万+ 条</td><td>文本</td><td>jsonl + pdf</td><td>英文预训练</td></tr>
+        <tr><td class="ds-name">中文论文期刊-2025</td><td class="scale-text">480万+ 条</td><td>文本</td><td>jsonl + pdf</td><td>最新中文语料</td></tr>
+        <tr><td class="ds-name">英文学术论文</td><td class="scale-text">310万+ 条</td><td>文本</td><td>jsonl + pdf</td><td>英文预训练</td></tr>
+        <tr><td class="ds-name">CSSCI 论文</td><td class="scale-text">45万+ 篇</td><td>文本</td><td>pdf</td><td>社科领域微调</td></tr>
+        <tr><td class="ds-name">ICT 中英文期刊</td><td class="scale-text">89万篇</td><td>文本</td><td>pdf</td><td>ICT 领域语料</td></tr>
+        <tr><td class="ds-name">数学期刊</td><td class="scale-text">110万+ 篇</td><td>文本</td><td>jsonl + pdf</td><td>数学推理</td></tr>
+        <tr><td class="ds-name">多领域中英文专利</td><td class="scale-text">500万条</td><td>文本</td><td>jsonl</td><td>专利 / 技术语料</td></tr>
+        <tr><td class="ds-name">蓝皮书数据集</td><td class="scale-text">18万+ 条</td><td>文本</td><td>jsonl + pdf</td><td>行业研究</td></tr>
       </tbody>
     </table>
   </section>
@@ -272,15 +272,15 @@
       覆盖初高中 / 大学数学竞赛、中高考与推理型题库，配多步骤解题与逻辑标注，是激发模型深度推理与自我反思能力的黄金数据。
     </div>
     <table>
-      <thead><tr><th>数据集名称</th><th>规模量级</th><th>模态</th><th>格式</th></tr></thead>
+      <thead><tr><th>数据集名称</th><th>规模量级</th><th>模态</th><th>格式</th><th>适用场景</th></tr></thead>
       <tbody>
-        <tr><td class="ds-name">推理型题库（深度数学推理）</td><td class="scale-text">2亿题</td><td>文本</td><td>JSON</td></tr>
-        <tr><td class="ds-name">中英文初高中数学竞赛题</td><td class="scale-text">700万题</td><td>文本</td><td>JSON</td></tr>
-        <tr><td class="ds-name">中高考试题（含模拟题）</td><td class="scale-text">503万题</td><td>文本</td><td>JSON</td></tr>
-        <tr><td class="ds-name">中文逻辑推理题库</td><td class="scale-text">20万题</td><td>文本</td><td>JSON</td></tr>
-        <tr><td class="ds-name">论证 / 演绎推理题库</td><td class="scale-text">各 20万题</td><td>文本</td><td>JSON</td></tr>
-        <tr><td class="ds-name">大学数学竞赛题</td><td class="scale-text">5万题</td><td>文本</td><td>JSON</td></tr>
-        <tr><td class="ds-name">英文数学竞赛题</td><td class="scale-text">30万题</td><td>文本</td><td>JSON</td></tr>
+        <tr><td class="ds-name">推理型题库（深度数学推理）</td><td class="scale-text">2亿题</td><td>文本</td><td>JSON</td><td>深度推理 / CoT</td></tr>
+        <tr><td class="ds-name">中英文初高中数学竞赛题</td><td class="scale-text">700万题</td><td>文本</td><td>JSON</td><td>竞赛推理</td></tr>
+        <tr><td class="ds-name">中高考试题（含模拟题）</td><td class="scale-text">503万题</td><td>文本</td><td>JSON</td><td>K12 / 评测</td></tr>
+        <tr><td class="ds-name">中文逻辑推理题库</td><td class="scale-text">20万题</td><td>文本</td><td>JSON</td><td>逻辑训练</td></tr>
+        <tr><td class="ds-name">论证 / 演绎推理题库</td><td class="scale-text">各 20万题</td><td>文本</td><td>JSON</td><td>论证推理</td></tr>
+        <tr><td class="ds-name">大学数学竞赛题</td><td class="scale-text">5万题</td><td>文本</td><td>JSON</td><td>高数推理</td></tr>
+        <tr><td class="ds-name">英文数学竞赛题</td><td class="scale-text">30万题</td><td>文本</td><td>JSON</td><td>英文推理</td></tr>
       </tbody>
     </table>
   </section>
@@ -296,15 +296,15 @@
       覆盖医疗论文期刊、医疗问答、中英医疗平行句对、医疗题库、医疗 CT 影像、医疗报告与医学视频，全部经去标识化与授权链核验，支撑医学大模型与多模态医学理解训练。
     </div>
     <table>
-      <thead><tr><th>数据集名称</th><th>规模量级</th><th>模态</th><th>格式</th></tr></thead>
+      <thead><tr><th>数据集名称</th><th>规模量级</th><th>模态</th><th>格式</th><th>适用场景</th></tr></thead>
       <tbody>
-        <tr><td class="ds-name">医疗论文期刊（含 PubMed 英文）</td><td class="scale-text">159万篇</td><td>文本</td><td>pdf / jsonl</td></tr>
-        <tr><td class="ds-name">中文医疗问答</td><td class="scale-text">1000万对</td><td>文本</td><td>json</td></tr>
-        <tr><td class="ds-name">中英医疗平行句对</td><td class="scale-text">1500万对</td><td>文本</td><td>json</td></tr>
-        <tr><td class="ds-name">医疗题库（中医/药师/执照/USMLE）</td><td class="scale-text">中医20万·药师20万·执照20万·USMLE 5000</td><td>文本</td><td>JSON</td></tr>
-        <tr><td class="ds-name">医疗-CT 影像</td><td class="scale-text">15000 组</td><td>图像</td><td>dicom + json</td></tr>
-        <tr><td class="ds-name">医疗报告</td><td class="scale-text">10万张</td><td>图文</td><td>jpg + MD</td></tr>
-        <tr><td class="ds-name">医学视频</td><td class="scale-text">20000 小时</td><td>视频</td><td>mp4</td></tr>
+        <tr><td class="ds-name">医疗论文期刊（含 PubMed 英文）</td><td class="scale-text">159万篇</td><td>文本</td><td>pdf / jsonl</td><td>医学预训练</td></tr>
+        <tr><td class="ds-name">中文医疗问答</td><td class="scale-text">1000万对</td><td>文本</td><td>json</td><td>医疗对话 / 问答</td></tr>
+        <tr><td class="ds-name">中英医疗平行句对</td><td class="scale-text">1500万对</td><td>文本</td><td>json</td><td>医疗翻译</td></tr>
+        <tr><td class="ds-name">医疗题库（中医/药师/执照/USMLE）</td><td class="scale-text">中医20万·药师20万·执照20万·USMLE 5000</td><td>文本</td><td>JSON</td><td>医学考试 / 题库</td></tr>
+        <tr><td class="ds-name">医疗-CT 影像</td><td class="scale-text">15000 组</td><td>图像</td><td>dicom + json</td><td>影像理解</td></tr>
+        <tr><td class="ds-name">医疗报告</td><td class="scale-text">10万张</td><td>图文</td><td>jpg + MD</td><td>报告生成</td></tr>
+        <tr><td class="ds-name">医学视频</td><td class="scale-text">20000 小时</td><td>视频</td><td>mp4</td><td>视频理解</td></tr>
       </tbody>
     </table>
   </section>
@@ -320,7 +320,7 @@
       除上述文本重点方向外，另覆盖图文、语音（含方言 / 多语种 ASR·TTS）、视频、具身与世界模型、阿拉伯语专项及东盟一带一路语料等，可按需定制。
     </div>
     <table>
-      <thead><tr><th>方向</th><th>代表性规模</th><th>模态</th><th>说明</th></tr></thead>
+      <thead><tr><th>方向</th><th>代表性规模</th><th>模态</th><th>适用场景</th></tr></thead>
       <tbody>
         <tr><td class="ds-name">语音大模型训练数据</td><td class="scale-text">2210万小时</td><td>音频</td><td>含多语种 / 方言 ASR、TTS</td></tr>
         <tr><td class="ds-name">通用图文预训练</td><td class="scale-text">亿级图文对</td><td>图文</td><td>LAION / DataComp 等规模级</td></tr>
@@ -328,6 +328,64 @@
         <tr><td class="ds-name">具身智能数据</td><td class="scale-text">数万小时</td><td>视频</td><td>合成 / 真机 / 真人</td></tr>
         <tr><td class="ds-name">一带一路东盟语料</td><td class="scale-text">数百 GB + 千万句对</td><td>文本 / 音频</td><td>越南 / 印尼 / 马来 / 泰 / 柬</td></tr>
         <tr><td class="ds-name">阿拉伯语专项</td><td class="scale-text">数百 GB ~ TB 级</td><td>文本 / 音频 / 视频</td><td>学术 / 文学 / 能源 / 多媒体</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 脱敏客户案例 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#fef3c7;">🤝</div>
+      <h2>客户合作案例（脱敏）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">匿名呈现</span><span class="value-tag">量级可证</span><span class="value-tag">不点名</span><br>
+      以下为脱敏后的代表性合作，不暴露客户实名与合同细节；可提供脱敏样本与验收记录佐证。
+    </div>
+    <table>
+      <thead><tr><th>客户层级</th><th>合作形式</th><th>覆盖模态</th><th>规模量级</th><th>交付周期</th></tr></thead>
+      <tbody>
+        <tr><td class="ds-name">国内头部互联网公司（大模型研发线）</td><td>框架合同 + 一年滚动下单 N 批</td><td>图像 / 文本 / 音频</td><td>图片千万张级 · 试题千万条级 · 音频百小时级</td><td>持续 12 个月</td></tr>
+        <tr><td class="ds-name">国内领先医疗 AI 企业</td><td>定制采购 + 阶段验收</td><td>文本 / 图文 / 图像</td><td>百万至千万级（论文/问答/CT/报告）</td><td>持续交付</td></tr>
+        <tr><td class="ds-name">具身智能创业团队</td><td>试点 + 滚动扩量</td><td>视频 / 多模态</td><td>机器人遥操作数据（家居整理 + 实验室抓取）</td><td>按里程碑</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 为什么选我们 WHY US -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#e0f2fe;">⭐</div>
+      <h2>为什么选我们（WHY US）</h2>
+    </div>
+    <div class="section-desc">
+      <span class="value-tag">双轨供给</span><span class="value-tag">反向定制</span><span class="value-tag">合规版权</span><span class="value-tag">四大模态</span><span class="value-tag">样例即取</span><br>
+      五个差异化能力，让数据供给更稳、更合规、更贴合你的模型架构与训练目标。
+    </div>
+    <div class="cap-grid">
+      <div class="cap-item"><div class="cap-icon">🔄</div><h4>采购 + 自制双轨</h4><p>采买与自研并行，灵活匹配客户的模型架构与训练目标，供给不卡单。</p></div>
+      <div class="cap-item"><div class="cap-icon">🎯</div><h4>反向定制</h4><p>不止于现成目录——按你的训练目标反向生产专属数据，缺什么补什么。</p></div>
+      <div class="cap-item"><div class="cap-icon">🔐</div><h4>合规版权</h4><p>授权链清晰、去标识化、全流程可审计，用得安心、训得合规。</p></div>
+      <div class="cap-item"><div class="cap-icon">🌐</div><h4>四大模态</h4><p>文本·图文·音频·视频全覆盖，含具身与世界模型数据，一体供给。</p></div>
+      <div class="cap-item"><div class="cap-icon">📦</div><h4>样例即取</h4><p>代表性样本点对点私发，先看质量再谈合作，降低你的决策门槛。</p></div>
+    </div>
+  </section>
+
+  <!-- 合作流程 -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon" style="background:#dcfce7;">📋</div>
+      <h2>合作流程</h2>
+    </div>
+    <div class="section-desc">从首次接触到持续交付，五步跑通。</div>
+    <table>
+      <thead><tr><th>步骤</th><th>动作</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td class="ds-name">1 · 留资</td><td>企微 / 邮箱 / 电话联系</td><td>一句话说清训练方向即可</td></tr>
+        <tr><td class="ds-name">2 · 需求对齐</td><td>确认模态 / 规模 / 格式</td><td>结合你的研发主线给推荐</td></tr>
+        <tr><td class="ds-name">3 · 样例私发</td><td>脱敏样本点对点发送</td><td>先看质量再谈合作</td></tr>
+        <tr><td class="ds-name">4 · 试点 / 框架合同</td><td>小批试点或签框架</td><td>一年滚动下单可谈</td></tr>
+        <tr><td class="ds-name">5 · 滚动交付</td><td>按里程碑持续供货</td><td>质量报告随批附送</td></tr>
       </tbody>
     </table>
   </section>
@@ -348,11 +406,12 @@
   <section class="cta-box">
     <h2>数据每天在更新，我们每天都在为您<span>加工更好数据</span></h2>
     <p>大模型竞争的尽头是数据竞争。我们以持续更新的海量数据资产与专业的加工能力，成为您模型训练路上最可靠的数据伙伴。无论预训练、后训练还是前沿方向（具身智能、世界模型、医学大模型），我们都能快速响应、精准交付。</p>
-    <div class="cta-info">
-      📱 商务合作 · 企业微信：搜索「<b>成都中启易联</b>」或「<b>唐唐</b>」<br>
-      ✉️ 邮箱：leiwanyi@zonekee.com<br>
-      📞 电话：17882107924
-    </div>
+      <div class="cta-info">
+        📱 商务合作 · 企业微信：搜索「<b>成都中启易联</b>」或「<b>唐唐</b>」<br>
+        ✉️ 邮箱：leiwanyi@zonekee.com<br>
+        📞 电话：17882107924<br>
+        📦 样例点对点私发，先看质量再合作
+      </div>
   </section>
 
   <footer class="footer">
